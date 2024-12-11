@@ -1,11 +1,23 @@
+'use client'; // Adicionando a diretiva 'use client' para marcar o componente como um Client Component
+
 import { ArrowRightIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { useRouter } from "next/navigation"; // Usando o novo import
 
 export default function LoginForm() {
+    const router = useRouter(); // Inicializando o hook useRouter
+
+    // Função para lidar com o submit do formulário
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault(); // Impede o comportamento padrão do formulário
+        // Redireciona para a página 'inicio' após o clique
+        router.push('/inicio');
+    };
+
     return (
-        <form action="" className="space-y-3">
+        <form onSubmit={handleSubmit} className="space-y-3">
             <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
                 <h1 className={`mb-3 text-2xl text-center text-[#030430]`}>
                     <strong>Entrar</strong>
@@ -43,7 +55,7 @@ export default function LoginForm() {
                         </div>        
                     </div>
                 </div>
-                <Button className="mt-4 w-full bg-[#030430]">
+                <Button type="submit" className="mt-4 w-full bg-[#030430]">
                     Entrar 
                     <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
                 </Button>

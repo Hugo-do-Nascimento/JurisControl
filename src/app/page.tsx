@@ -16,7 +16,7 @@ export default function Home() {
             <strong>Seja bem-vindo ao JurisControl!</strong> Aqui, tudo gira em torno da eficiência.{' '}
             Simplificando o complexo, estamos prontos para ajudar.
           </p>
-          <Link href="/login" className="flex items-center gap-5 self-start rounded-lg bg-[#030430] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90 md:text-base">
+          <Link href="./login" className="flex items-center gap-5 self-start rounded-lg bg-[#030430] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90 md:text-base">
             <span>Entrar</span>
             <ArrowRightIcon className="w-5 md:w-6" />
           </Link>

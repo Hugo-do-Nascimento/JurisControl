@@ -18,7 +18,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { format } from "date-fns";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
-
 // Agenda de tarefas com datas e tarefas associadas
 const agendaTarefas = [
   { data: "2024-11-25", tasks: ["Audiência de Maria Joaquina - 15 horas"] },
@@ -35,19 +34,16 @@ const agendaTarefas = [
   { data: "2024-12-06", tasks: ["Audiência de Clara - 17 horas"] },
   { data: "2024-12-07", tasks: ["Audiência de Paula - 11 horas"] },
 ];
-
 // Validação com Zod para garantir que a data seja válida
 const FormSchema = z.object({
   dob: z.date({ required_error: "A data é obrigatória." }),
 });
-
 export default function Page() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
   const carouselRef = useRef<HTMLDivElement>(null);
-
   // UseEffect para rolar até o evento correto no carrossel quando a data for selecionada
   useEffect(() => {
     if (selectedDate && carouselRef.current) {
@@ -64,7 +60,6 @@ export default function Page() {
       }
     }
   }, [selectedDate]);
-
   return (
     <main className="h-screen flex flex-col">
       {/* Barra de navegação */}
@@ -76,7 +71,6 @@ export default function Page() {
           </Button>
         }
       />
-
       {/* Botão do calendário */}
       <section className="flex justify-center my-4">
         <Popover>
@@ -100,7 +94,6 @@ export default function Page() {
           </PopoverContent>
         </Popover>
       </section>
-
       {/* Carrossel da Agenda */}
       <section className="flex-grow flex justify-center items-center p-4">
         <div ref={carouselRef} className="relative w-full max-w-5xl overflow-hidden">

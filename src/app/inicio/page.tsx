@@ -47,13 +47,13 @@ export default function Page() {
                         <p className="mt-2 text-lg font-semibold">Agenda</p> 
                     </div>
                 </Link>
-
-                <Link href="/expediente"> {/* Adicionando rota para o card de Expediente */}
+{/* 
+                <Link href="/expediente"> Adicionando rota para o card de Expediente 
                     <div className="w-40 h-40 bg-[#030430] text-white flex flex-col items-center justify-center rounded-lg shadow-lg cursor-pointer">
                         <FilePlus2 size={48} /> 
                         <p className="mt-2 text-lg font-semibold">Expediente</p> 
                     </div>
-                </Link>
+                </Link>  */}
             </div>
         </main>
     );
